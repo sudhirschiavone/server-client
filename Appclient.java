@@ -4,7 +4,7 @@ package it.fi.itismeucci;
  * Hello world!
  *
  */
-public class App
+public class Appclient
 {
     public static void main( String[] args )
     {
