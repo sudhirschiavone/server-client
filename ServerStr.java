@@ -2,7 +2,7 @@ package it.fi.itismeucci;
 import java.io.*;
 import java.net.*;
 
-public class ServerStr{
+public class ServerStr extends Thread{
     ServerSocket server = null;
     Socket client = null;
     String stringaRicevuta = null;
