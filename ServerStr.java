@@ -1,8 +1,8 @@
-package it.fi.meucci;
+package it.fi.itismeucci;
 import java.io.*;
 import java.net.*;
 
-public class ServerStr {
+public class ServerStr{
     ServerSocket server = null;
     Socket client = null;
     String stringaRicevuta = null;
@@ -10,15 +10,16 @@ public class ServerStr {
     BufferedReader inDalClient ;
     DataOutputStream outVersoClient;
 
+    public ServerStr () {
+        try { server = new ServerSocket (6789); } 
+        catch (Exception e) { System.out.println(e.getMessage());}
+    }
+
     public Socket attendi(){
         try{
             System.out.println("1 SERVER partito in esecuzione "); 
-            // creo un server silla porta 6789
-            server = new ServerSocket (6789);
             // rimane in attesa di un client
             client = server.accept();
-            // chiudo il server per inibire altri client
-            server.close();
             // associo due oggetti al socket client per effettuare la scrittura e la lettura
             inDalClient = new BufferedReader(new InputStreamReader (client.getInputStream ()));
             outVersoClient = new DataOutputStream (client.getOutputStream());
@@ -55,6 +56,6 @@ public class ServerStr {
             System.out.println ("Errore durante la connessione !");
             System.exit(1);
         }
+        
     }
-
 }
